@@ -1,0 +1,3 @@
+[submodule "projects/laramore"]
+	path = projects/laramore
+	url = git@github.com:laramore/laramore.git
