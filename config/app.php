@@ -174,11 +174,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        /*
-         * We need to load here our providers
-         */
-        Laramore\Providers\ModelLoader::class,
     ],
 
     /*
