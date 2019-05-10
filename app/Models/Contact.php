@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laramore\Traits\Model\HasLaramore;
 use Laramore\Fields\{
-    PrimaryId, Text, Boolean
+    PrimaryId, Foreign, Text
 };
 
-class Group extends Model
+class Contact extends Model
 {
     use HasLaramore;
 
     protected static function __meta($meta, $fields)
     {
         $fields->id = PrimaryId::field();
-        $fields->name = Text::field()->unique();
-        $fields->admin = Boolean::field();
+        $fields->user = Foreign::field()->on(User::class);
+        $fields->name = Text::field();
+        $fields->value = Text::field();
     }
 }

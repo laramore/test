@@ -14,12 +14,13 @@ class User extends Authenticatable
 {
     use Notifiable, HasLaramore;
 
-    protected static function __meta($meta, $fields) {
+    protected static function __meta($meta, $fields)
+    {
         $fields->id = PrimaryId::field();
         $fields->name = Text::field();
         $fields->email = Email::field()->unique()->cdn('laramore.com');
         $fields->password = Password::field();
-        $fields->group = Foreign::field()->nullable()->on(Group::class);
+        $fields->group = Foreign::field()->on(Group::class)->nullable();
 
         $meta->useTimestamps();
     }
