@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laramore\Traits\Model\HasLaramore;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laramore\Fields\{
-    PrimaryId, Text, Email, Password, Foreign
+    PrimaryUuid, Char, Email, Password, Foreign
 };
 
 class User extends Authenticatable
@@ -16,9 +16,9 @@ class User extends Authenticatable
 
     protected static function __meta($meta, $fields)
     {
-        $fields->id = PrimaryId::field();
-        $fields->name = Text::field();
-        $fields->email = Email::field()->unique()->cdn('laramore.com');
+        $fields->id = PrimaryUuid::field();
+        $fields->name = Char::field()->length(80);
+        $fields->email = Email::field()->unique()->cdn('laramore.org');
         $fields->password = Password::field();
         $fields->group = Foreign::field()->on(Group::class)->nullable();
 
