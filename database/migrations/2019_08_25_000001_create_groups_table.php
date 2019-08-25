@@ -1,12 +1,12 @@
 <?php
 /**
- * Generated with Laramore on 2019-05-26 14:04:18.
+ * Generated with Laramore on 2019-08-25 10:25:51.
  *
  * @var    Illuminate\Database\Migrations\Migration
  * @model  App\Models\Group
  */
 
-use Illuminate\Support\Facades\Schema;
+use Laramore\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -21,11 +21,11 @@ class CreateGroupsTable extends Migration
     {
         Schema::create("groups", function (Blueprint $table) {
             $table->increments("id");
-            $table->char("name")->length(255)->unique(true);
+            $table->char("name")->unique(true);
             $table->boolean("admin");
-            $table->binaryUuid("creator_id")->nullable(true);
+            $table->unsignedInteger("creator_id")->nullable(true);
             $table->unsignedInteger("contact_id")->nullable(true);
-            $table->binaryUuid("admin_user_id")->nullable(true);
+            $table->unsignedInteger("admin_user_id")->nullable(true);
         });
     }
 

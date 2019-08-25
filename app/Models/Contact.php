@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laramore\Traits\Model\HasLaramore;
 use Laramore\Fields\{
-    PrimaryId, ForeignUuid, Char
+    PrimaryId, Foreign, Char
 };
 
 class Contact extends Model
 {
     use HasLaramore;
 
-    protected static function __meta($meta, $fields)
+    protected static function __meta($meta)
     {
-        $fields->id = PrimaryId::field();
-        $fields->user = ForeignUuid::field()->on(User::class);
-        $fields->name = Char::field();
-        $fields->value = Char::field();
+        $meta->id = PrimaryId::field();
+        $meta->user = Foreign::field()->on(User::class);
+        $meta->name = Char::field();
+        $meta->value = Char::field();
 
-        $meta->unique($fields->user, $fields->name);
+        $meta->unique($meta->user, $meta->name);
     }
 }

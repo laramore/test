@@ -1,12 +1,12 @@
 <?php
 /**
- * Generated with Laramore on 2019-05-26 14:04:18.
+ * Generated with Laramore on 2019-08-25 10:25:51.
  *
  * @var    Illuminate\Database\Migrations\Migration
  * @model  App\Models\Contact
  */
 
-use Illuminate\Support\Facades\Schema;
+use Laramore\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -21,9 +21,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create("contacts", function (Blueprint $table) {
             $table->increments("id");
-            $table->binaryUuid("user_id");
-            $table->char("name")->length(255);
-            $table->char("value")->length(255);
+            $table->unsignedInteger("user_id");
+            $table->char("name");
+            $table->char("value");
 
 	        $table->foreign("user_id")->references("id")->on("users");
 

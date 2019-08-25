@@ -1,12 +1,12 @@
 <?php
 /**
- * Generated with Laramore on 2019-05-26 14:04:18.
+ * Generated with Laramore on 2019-08-25 10:25:51.
  *
  * @var    Illuminate\Database\Migrations\Migration
  * @model  App\Models\User
  */
 
-use Illuminate\Support\Facades\Schema;
+use Laramore\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -20,15 +20,13 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create("users", function (Blueprint $table) {
-            $table->binaryUuid("id")->primary(true);
+            $table->increments("id");
+            $table->binaryUuid("uuid");
             $table->char("name")->length(80);
-            $table->char("email")->length(255)->unique(true);
-            $table->char("password")->length(255);
-            $table->unsignedInteger("group_id")->nullable(true);
+            $table->char("email")->unique(true);
+            $table->char("password");
             $table->timestamp("created_at")->useCurrent(true);
             $table->timestamp("updated_at")->nullable(true);
-
-	        $table->foreign("group_id")->references("id")->on("groups");
         });
     }
 

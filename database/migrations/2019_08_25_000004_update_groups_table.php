@@ -1,12 +1,12 @@
 <?php
 /**
- * Generated with Laramore on 2019-05-26 14:04:18.
+ * Generated with Laramore on 2019-08-25 10:25:51.
  *
  * @var    Illuminate\Database\Migrations\Migration
  * @model  App\Models\Group
  */
 
-use Illuminate\Support\Facades\Schema;
+use Laramore\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
